@@ -5,7 +5,7 @@ Contributions to the documentations are highly welcome! Please make a pull reque
 Requires Python 3.x to build.
 
 ```shell
-pip install mkdocs-material
+pip install mkdocs-material # or pip3 install mkdocs-material
 git clone --recursive https://github.com/molstar/docs.git
 cd docs
 ```
