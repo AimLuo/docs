@@ -1,13 +1,15 @@
-# Creating Plugin Instance
+# 创建 Molstar 实例
 
-There are 4 basic ways of instantiating the Mol* plugin.
+有四个方法来使用 Mol*
 
-## ``Viewer`` wrapper
+## 使用 ``Viewer``
 
-- The most basic usage is to use the ``Viewer`` wrapper. This is best suited for use cases that do not require much custom behavior and are mostly about just displaying a structure.
-- See ``Viewer`` class is defined in [src/apps/viewer/app.ts](https://github.com/molstar/molstar/blob/master/src/apps/viewer/app.ts) for available methods and options.
+> molstar 提供了一个 已经集成 Molstar 的 viewer app
 
-Example usage without using WebPack:
+- 最基础的方式是使用 ``Viewer``。 这最适合于不需要太多自定义行为并且主要是显示结构的用例。
+- 从 [src/apps/viewer/app.ts](https://github.com/molstar/molstar/blob/master/src/apps/viewer/app.ts) 查看`Viewer`的配置和方法
+
+不使用WebPack的使用示例:
 
 ```HTML
 <style>
@@ -20,9 +22,9 @@ Example usage without using WebPack:
     }
 </style>
 <!-- 
-    molstar.js and .css are obtained from
-    - the folder build/viewer after cloning and building the molstar package 
-    - from the build/viewer folder in the Mol* NPM package
+    molstar.js 和 .css 来源于
+    - 源码编译后，/build/viewer
+    - NPM package 方式，位于 molstar/build/viewer 中
 -->
 <link rel="stylesheet" type="text/css" href="molstar.css" />
 <script type="text/javascript" src="./molstar.js"></script>
@@ -50,7 +52,7 @@ Example usage without using WebPack:
 </script>
 ```
 
-When using WebPack (or possibly other build tool) with the Mol* NPM package installed, the viewer class can be imported using 
+拥有 `webpack` 等构建工具
 
 ```ts
 import { Viewer } from 'molstar/build/viewer/molstar'
@@ -60,14 +62,14 @@ function initViewer(target: string | HTMLElement) {
 }
 ```
 
-## ``PluginContext`` with build-in React UI
+## 使用 ``PluginContext``（通过内置的 React UI ）
 
-- For more customization options it is possible to use the [``PluginContext``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/context.ts) directly.
-- When creating the plugin instance it is possible to customize the [``PluginSpec``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/spec.ts).
-- The default [``PluginSpec``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/spec.ts) is available [here](https://github.com/molstar/molstar/blob/master/src/mol-plugin/spec.ts).
-- [``PluginConfig``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/config.ts) object provides additional customization options.
-- See the [Viewer State Management](viewer-state.md) section for more information on customizing things like background.
-- See the [Data State Management](data-state.md) section for more information on build the state.
+- 当需要更多定制选项时，可以直接使用 [``PluginContext``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/context.ts)
+- 创建示例时可以定制 [``PluginSpec``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/spec.ts).
+- 默认 [``PluginSpec``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/spec.ts)
+- [``PluginConfig``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/config.ts) 提供额外的自定义选项
+- 查看 [Viewer State Management](viewer-state.md)，了解更多自定义信息，比如背景色。
+- 有关构建状态的更多信息，请参见 [Data State Management](data-state.md)。
 
 ```ts
 import { DefaultPluginUISpec, PluginUISpec } from 'molstar/lib/mol-plugin-ui/spec';
@@ -94,7 +96,7 @@ async function createPlugin(parent: HTMLElement) {
 createPlugin(document.getElementById('app')!); // app is a <div> element
 ```
 
-To use the plugin (with the React UI) inside another React app:
+在其他 react 项目中使用内置的 React UI
 
 ```ts
 function MolStarWrapper() {
@@ -113,9 +115,9 @@ function MolStarWrapper() {
 }
 ```
 
-## ``PluginContext`` without built-in React UI
+## ``PluginContext``（不通过内置 React UI 使用）
 
-- The [``PluginContext``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/context.ts) can be instantiated without using the default React UI.
+- [``PluginContext``](https://github.com/molstar/molstar/blob/master/src/mol-plugin/context.ts) 可以不通过内置 UI 实例化
 
 ```HTML
 <div id='molstar-parent' style='position: absolute; top: 0; left: 0; right: 0; bottom: 0'>
@@ -154,10 +156,10 @@ async function init() {
 
 ```
 
-## ``Canvas3D`` without built-in state management
+## 使用 ``Canvas3D``（不通过内置状态管理）
 
-- The ``PluginContext`` object from the above examples can be completely omitted.
-- See [Browser Tests](https://github.com/molstar/molstar/tree/master/src/tests/browser) for example usage.
+- 上面例子中的 `PluginContext` 对象可以完全省略。
+- 查看 [Browser Tests](https://github.com/molstar/molstar/tree/master/src/tests/browser) 示例
 
 ```ts
 const canvas = document.getElementById('canvas'); // parent <canvas> element

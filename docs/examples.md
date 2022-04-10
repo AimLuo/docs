@@ -1,3 +1,3 @@
-# Examples
+# 示例
 
-Refer to Mol* [Apps](https://github.com/molstar/molstar/tree/master/src/apps) and [Examples](https://github.com/molstar/molstar/tree/master/src/examples).
+看 Mol* [Apps](https://github.com/molstar/molstar/tree/master/src/apps) 和 [Examples](https://github.com/molstar/molstar/tree/master/src/examples).

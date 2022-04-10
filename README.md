@@ -1,4 +1,4 @@
-# Mol* Documentation
+# Mol* 文档
 
 Contributions to the documentations are highly welcome! Please make a pull request with your changes.
 
@@ -15,4 +15,3 @@ For local preview, run
 ```
 mkdocs serve
 ```
-

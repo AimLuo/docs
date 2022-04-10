@@ -1,15 +1,18 @@
 # Volume Server
 
-Provides near-instantaneous access to volumetric data including density maps (for instance, from X-ray crystallography 
+Provides near-instantaneous access to volumetric data including density maps (for instance, from X-ray crystallography
 or cryo-electron microscopy experiments), spatial distribution data, output from electrostatic calculations. It works by
-utilizing adaptive downsampling (similar to how Google Earth works). 
+utilizing adaptive downsampling (similar to how Google Earth works).
+> 提供对体积数据的近乎即时的访问，包括密度图(例如，来自X射线晶体学或低温电子显微镜实验)、空间分布数据和静电计算输出。它通过使用自适应下采样来工作(类似于谷歌地球的工作方式)。
 
 ## Example
+
 ```sh
 node lib/commonjs/servers/volume/server --idMap x-ray '/opt/data/xray/${id}.mdb'
 ```
 
 ## Usage
+
 | Argument= | Description |
 | --- | --- |
 | `--cfg` | JSON config file path. If a property is not specified, cmd line param/OS variable/default value are used. |

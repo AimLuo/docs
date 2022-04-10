@@ -1,4 +1,4 @@
-site_name: Mol* Documentation
+site_name: Mol* 文档
 theme:
   name: null
   custom_dir: mkdocs-material/material
@@ -29,7 +29,7 @@ nav:
   - 'data-state.md'
   - 'viewer-state.md'
   - 'selections.md'
-  - Transforms:
+  - transforms:
     - 'transforms/custom-trajectory.md'
   - Data Access Tools:
     - 'data-access-tools/model-server.md'
@@ -38,4 +38,4 @@ nav:
     - 'data-access-tools/convert-to-bcif.md'
     - 'data-access-tools/create-ccd-table.md'
     - 'data-access-tools/extract-ccd-ions.md'
-repo_url: https://github.com/molstar/docs
+repo_url: https://github.com/AimLuo/docs

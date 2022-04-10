@@ -1,8 +1,8 @@
-# Load Trajectory from a Custom Format
+# 通过自定义格式加载 Trajectory
 
-This section shows a high level example for loading trajectory from custom data in specialized plugin instances. A more complete solution is available for example in form of the [G3D format extension](https://github.com/molstar/molstar/tree/master/src/extensions/g3d).
+本节展示了一个从专用 Mol* 实例中的自定义数据加载 trajectory 的高级示例。 更完整示例查看 [G3D format extension](https://github.com/molstar/molstar/tree/master/src/extensions/g3d).
 
-## Defining and Using a Custom Transformer
+## 定义和使用自定义转换器
 
 ```ts
 import { StateTransformer } from 'molstar/lib/mol-state';
@@ -33,10 +33,9 @@ export const TrajectoryFromCustomData = CreateTransformer({
 });
 ```
 
-The ``customParse`` function can usually be implemented 
-by modifying/extending an [existing parser already available in Mol*](https://github.com/molstar/molstar/tree/master/src/mol-model-formats/structure).
+自定义解析器（``customParse``）可以通过修改和扩展 [existing parser already available in Mol*](https://github.com/molstar/molstar/tree/master/src/mol-model-formats/structure) 来实现
 
-To use the transformer:
+用转换器
 
 ```ts
 const data: CustomTrajectoryData = await (await fetch(url)).json();
@@ -45,7 +44,7 @@ const trajectory = await plugin.build().toRoot().apply(TrajectoryFromCustomData,
 await plugin.builders.structure.hierarchy.applyPreset(trajectory, 'default');
 ```
 
-## Using Mol* to Download the Data
+## 通过 Mol* 加载（download）数据
 
 ```ts
 export const TrajectoryFromCustomData = CreateTransformer({
