@@ -13,6 +13,6 @@ jobs:
           python-version: 3.x
       - name: b
         run: 
-          pip install mkdocs-material
-          git submodule update --init --recursive
-          mkdocs gh-deploy --force
+          pip install mkdocs-material,
+          git submodule update --init --recursive,
+          mkdocs gh-deploy --force.
