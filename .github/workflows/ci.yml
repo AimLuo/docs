@@ -15,5 +15,5 @@ jobs:
           pip install mkdocs-material
       - name: build
         run: 
-          git submodule update --init --recursive,
-          mkdocs gh-deploy --force.
+          git submodule update --init --recursive
+          mkdocs gh-deploy --force
