@@ -7,15 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install python
       - uses: actions/setup-python@v2
-      - name: a
         with:
           python-version: 3.x
-      - name: b
+      - name: install mkdocs
         run: 
           pip install mkdocs-material
-      - name: c
+      - name: build
         run: 
           git submodule update --init --recursive,
           mkdocs gh-deploy --force.
