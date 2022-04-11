@@ -13,7 +13,9 @@ jobs:
       - name: install mkdocs
         run: 
           pip install mkdocs-material
-      - name: build
+      - name: submodule
         run: 
           git submodule update --init --recursive
+      - name: build
+        run:
           mkdocs gh-deploy --force
