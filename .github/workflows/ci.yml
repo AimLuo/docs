@@ -6,6 +6,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: install python
       - uses: actions/setup-python@v2
       - name: a
         with:
@@ -13,7 +15,6 @@ jobs:
       - name: b
         run: 
           pip install mkdocs-material
-      - uses: actions/checkout@v2
       - name: c
         run: 
           git submodule update --init --recursive,
